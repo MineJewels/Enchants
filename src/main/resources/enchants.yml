@@ -1,0 +1,12 @@
+enchants:
+  "efficiency":
+    lore:
+      format: "&3 | &bEfficiency &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 100
+    requirements:
+      enabled: true
+      level: 5
