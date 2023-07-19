@@ -24,3 +24,8 @@ messages:
       enabled: true
       value:
         - "&3&l[!] &bYou have been given a &3%type%&b pickaxe!"
+  mineral-greed-activated:
+    message:
+      enabled: true
+      value:
+        - "&a&l[!] &aYou have gained &2%amount%&a minerals from mineral greed!"

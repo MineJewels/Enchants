@@ -20,7 +20,8 @@ public abstract class Enchant {
     public abstract void onBreak(final CobbleCubeBreakEvent event, final Player player, final int level);
 
     public double getChance(final int level) {
-        return this.baseChance * (this.chanceIncrease + (level - 1));
+        if (level == 0) return 0;
+        return this.baseChance + (this.chanceIncrease * (level - 1));
     }
 
     public double getCost(final int level) {

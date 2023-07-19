@@ -18,6 +18,7 @@ org\minejewels\jewelspickaxes\enchant\listener\BlockBreak.class
 org\minejewels\jewelspickaxes\menu\items\EnchantItem.class
 org\minejewels\jewelspickaxes\pickaxe\commands\PickaxeCommand.class
 org\minejewels\jewelspickaxes\pickaxe\registry\UpdateRegistry.class
+org\minejewels\jewelspickaxes\enchant\impl\MineralGreedEnchant.class
 org\minejewels\jewelspickaxes\enchant\player\cache\EnchantPlayerCache.class
 org\minejewels\jewelspickaxes\JewelsPickaxes.class
 org\minejewels\jewelspickaxes\pickaxe\registry\PickaxeRegistry.class

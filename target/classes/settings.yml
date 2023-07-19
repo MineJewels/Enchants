@@ -3,5 +3,6 @@ enchant-order:
   - "speed"
   - "haste"
   - "jump"
+  - "mineral_greed"
 
 update-delay: 10 # 10 Seconds

@@ -9,10 +9,7 @@ import org.bukkit.entity.Player;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.factory.Maps;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
-import org.minejewels.jewelspickaxes.enchant.impl.EfficiencyEnchant;
-import org.minejewels.jewelspickaxes.enchant.impl.HasteEnchant;
-import org.minejewels.jewelspickaxes.enchant.impl.JumpEnchant;
-import org.minejewels.jewelspickaxes.enchant.impl.SpeedEnchant;
+import org.minejewels.jewelspickaxes.enchant.impl.*;
 import org.minejewels.jewelspickaxes.enchant.listener.BlockBreak;
 import org.minejewels.jewelspickaxes.enchant.listener.PickaxeListener;
 import org.minejewels.jewelspickaxes.enchant.listener.PlayerHold;
@@ -77,7 +74,8 @@ public final class JewelsPickaxes extends AbyssPlugin {
                 new EfficiencyEnchant(this),
                 new JumpEnchant(this),
                 new HasteEnchant(this),
-                new SpeedEnchant(this)
+                new SpeedEnchant(this),
+                new MineralGreedEnchant(this)
         ).forEach(enchant -> this.enchantRegistry.register(enchant.getName().toUpperCase(), enchant));
     }
 

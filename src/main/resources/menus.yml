@@ -49,7 +49,7 @@ main-menu:
           - "&aLevel: &f%current%&a/&f%max%"
           - "&aPrice: &f%cost%"
     "speed":
-      slot: 11
+      slot: 12
       item:
         material: "DIAMOND"
         name: "&b&lSpeed"
@@ -58,6 +58,17 @@ main-menu:
           - "&7"
           - "&bLevel: &f%current%&b/&f%max%"
           - "&bPrice: &f%cost%"
+    "mineral_greed":
+      slot: 13
+      item:
+        material: "IRON_INGOT"
+        name: "&b&lMineral Greed"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+          - "&bChance: &f%chance%"
 enchant-menu:
   title: "&8Upgrading %enchant%"
   rows: 3

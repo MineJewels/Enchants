@@ -43,3 +43,18 @@ enchants:
     chance:
       base-chance: 100.0
       chance-increase: 0.0
+  "mineral_greed":
+    lore:
+      format: "&3 | &bMineral Greed &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 15
+    chance:
+      base-chance: 10.0
+      chance-increase: 5.0
+    amount:
+      base-minimum: 100
+      base-maximum: 250
+      increase: 1.5

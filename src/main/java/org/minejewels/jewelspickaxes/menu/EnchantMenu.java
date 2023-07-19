@@ -48,7 +48,7 @@ public class EnchantMenu extends AbyssMenu {
         final MenuBuilder builder = this.createBase();
 
         final PlaceholderReplacer replacer = new PlaceholderReplacer()
-                .addPlaceholder("%enchant%", WordUtils.formatText(enchant.getName()));
+                .addPlaceholder("%enchant%", WordUtils.formatText(enchant.getName().replace("_", " ")));
 
         if (this.enchantUtils.getPickaxeFromUUID(player, pickaxeUUID) ==  null) {
             this.plugin.getMessageCache().sendMessage(player, "messages.pickaxe-in-inventory");

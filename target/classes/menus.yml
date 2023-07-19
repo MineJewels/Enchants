@@ -28,6 +28,47 @@ main-menu:
           - "&7"
           - "&aLevel: &f%current%&a/&f%max%"
           - "&aPrice: &f%cost%"
+    "haste":
+      slot: 10
+      item:
+        material: "GOLDEN_PICKAXE"
+        name: "&e&lHaste"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&eLevel: &f%current%&e/&f%max%"
+          - "&ePrice: &f%cost%"
+    "jump":
+      slot: 11
+      item:
+        material: "EMERALD"
+        name: "&a&lJump"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&aLevel: &f%current%&a/&f%max%"
+          - "&aPrice: &f%cost%"
+    "speed":
+      slot: 12
+      item:
+        material: "DIAMOND"
+        name: "&b&lSpeed"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+    "mineral_greed":
+      slot: 13
+      item:
+        material: "IRON_INGOT"
+        name: "&b&lMineral Greed"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+          - "&bChance: &f%chance%"
 enchant-menu:
   title: "&8Upgrading %enchant%"
   rows: 3
