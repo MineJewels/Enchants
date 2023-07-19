@@ -1,12 +1,15 @@
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\listener\PickaxeListener.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\listener\BlockBreak.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\menu\PickaxeMenu.java
+C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\impl\HasteEnchant.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\pickaxe\Pickaxe.java
+C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\impl\SpeedEnchant.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\player\EnchantPlayer.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\impl\EfficiencyEnchant.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\menu\EnchantMenu.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\pickaxe\task\UpdateTask.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\pickaxe\registry\UpdateRegistry.java
+C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\impl\JumpEnchant.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\utils\EnchantUtils.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\listener\PlayerHold.java
 C:\Users\gabri\MC\Abyss\Enchants\src\main\java\org\minejewels\jewelspickaxes\enchant\registry\EnchantRegistry.java

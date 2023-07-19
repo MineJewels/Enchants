@@ -3,7 +3,6 @@ package org.minejewels.jewelspickaxes.enchant.utils;
 import net.abyssdev.abysslib.nbt.NBTUtils;
 import net.abyssdev.abysslib.text.Color;
 import net.abyssdev.abysslib.utils.Utils;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -171,8 +170,6 @@ public class EnchantUtils {
         item.setItemMeta(pickaxeMeta);
 
         if (this.getSlotFromUUID(player, pickaxeUUID) == -1) return;
-
-        System.out.println(3);
 
         player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), item);
 

@@ -51,7 +51,7 @@ enchant-menu:
           - "&dBack to enchant menu!"
   items:
     purchasable:
-      material: "EMERALD"
+      material: "LIME_STAINED_GLASS_PANE"
       enchanted: true
       name: "&a%level% Levels"
       lore:
@@ -59,7 +59,7 @@ enchant-menu:
         - "&aCost: %cost%"
         - "&7"
     not-enough:
-      material: "BARRIER"
+      material: "RED_STAINED_GLASS_PANE"
       enchanted: true
       name: "&c%level% &cLevels"
       lore:
@@ -68,7 +68,7 @@ enchant-menu:
         - "&c"
         - "&cYou need &4%amount%&c more to purchase this!"
     max-level:
-      material: "BARRIER"
+      material: "PURPLE_STAINED_GLASS_PANE"
       enchanted: true
       name: "&c%level% Levels"
       lore:

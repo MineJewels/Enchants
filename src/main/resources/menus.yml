@@ -28,6 +28,36 @@ main-menu:
           - "&7"
           - "&aLevel: &f%current%&a/&f%max%"
           - "&aPrice: &f%cost%"
+    "haste":
+      slot: 10
+      item:
+        material: "GOLDEN_PICKAXE"
+        name: "&e&lHaste"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&eLevel: &f%current%&e/&f%max%"
+          - "&ePrice: &f%cost%"
+    "jump":
+      slot: 11
+      item:
+        material: "EMERALD"
+        name: "&a&lJump"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&aLevel: &f%current%&a/&f%max%"
+          - "&aPrice: &f%cost%"
+    "speed":
+      slot: 11
+      item:
+        material: "DIAMOND"
+        name: "&b&lSpeed"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
 enchant-menu:
   title: "&8Upgrading %enchant%"
   rows: 3
@@ -51,7 +81,7 @@ enchant-menu:
           - "&dBack to enchant menu!"
   items:
     purchasable:
-      material: "EMERALD"
+      material: "LIME_STAINED_GLASS_PANE"
       enchanted: true
       name: "&a%level% Levels"
       lore:
@@ -59,7 +89,7 @@ enchant-menu:
         - "&aCost: %cost%"
         - "&7"
     not-enough:
-      material: "BARRIER"
+      material: "RED_STAINED_GLASS_PANE"
       enchanted: true
       name: "&c%level% &cLevels"
       lore:
@@ -68,7 +98,7 @@ enchant-menu:
         - "&c"
         - "&cYou need &4%amount%&c more to purchase this!"
     max-level:
-      material: "BARRIER"
+      material: "PURPLE_STAINED_GLASS_PANE"
       enchanted: true
       name: "&c%level% Levels"
       lore:

@@ -10,3 +10,36 @@ enchants:
     chance:
       base-chance: 100.0
       chance-increase: 0.0
+  "haste":
+    lore:
+      format: "&3 | &bHaste &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 100
+    chance:
+      base-chance: 100.0
+      chance-increase: 0.0
+  "speed":
+    lore:
+      format: "&3 | &bSpeed &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 100
+    chance:
+      base-chance: 100.0
+      chance-increase: 0.0
+  "jump":
+    lore:
+      format: "&3 | &bJump &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 100
+    chance:
+      base-chance: 100.0
+      chance-increase: 0.0

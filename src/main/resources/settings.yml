@@ -1,4 +1,7 @@
 enchant-order:
   - "efficiency"
+  - "speed"
+  - "haste"
+  - "jump"
 
 update-delay: 10 # 10 Seconds

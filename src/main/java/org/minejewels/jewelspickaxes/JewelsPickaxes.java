@@ -10,6 +10,9 @@ import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.factory.Maps;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
 import org.minejewels.jewelspickaxes.enchant.impl.EfficiencyEnchant;
+import org.minejewels.jewelspickaxes.enchant.impl.HasteEnchant;
+import org.minejewels.jewelspickaxes.enchant.impl.JumpEnchant;
+import org.minejewels.jewelspickaxes.enchant.impl.SpeedEnchant;
 import org.minejewels.jewelspickaxes.enchant.listener.BlockBreak;
 import org.minejewels.jewelspickaxes.enchant.listener.PickaxeListener;
 import org.minejewels.jewelspickaxes.enchant.listener.PlayerHold;
@@ -71,7 +74,10 @@ public final class JewelsPickaxes extends AbyssPlugin {
 
     private void loadEnchants() {
         Lists.immutable.of(
-                new EfficiencyEnchant(this)
+                new EfficiencyEnchant(this),
+                new JumpEnchant(this),
+                new HasteEnchant(this),
+                new SpeedEnchant(this)
         ).forEach(enchant -> this.enchantRegistry.register(enchant.getName().toUpperCase(), enchant));
     }
 
