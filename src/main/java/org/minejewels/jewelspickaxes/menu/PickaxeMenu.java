@@ -41,8 +41,6 @@ public class PickaxeMenu extends AbyssMenu {
         }
         final ItemStack pickaxe = this.enchantUtils.getPickaxeFromUUID(player, pickaxeUUID);
 
-        player.sendMessage(String.valueOf(this.plugin.getMenusConfig().getInt("main-menu.display-pickaxe.slot")));
-
         if (this.plugin.getMenusConfig().getBoolean("main-menu.display-pickaxe.enabled")) {
             builder.setItem(this.plugin.getMenusConfig().getInt("main-menu.display-pickaxe.slot"), pickaxe);
         }

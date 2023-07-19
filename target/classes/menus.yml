@@ -44,12 +44,13 @@ enchant-menu:
   special-items:
     back:
       slot: 18
-      material: "ARROW"
-      name: "&dBack"
-      lore:
-        - "&dBack to enchant menu!"
+      item:
+        material: "ARROW"
+        name: "&dBack"
+        lore:
+          - "&dBack to enchant menu!"
   items:
-    purchasabe:
+    purchasable:
       material: "EMERALD"
       enchanted: true
       name: "&a%level% Levels"
@@ -65,7 +66,7 @@ enchant-menu:
         - "&cNew Level: %new-level%"
         - "&cCost: %cost%"
         - "&c"
-        - "&cYou need &4%amount&c more to purchase this!"
+        - "&cYou need &4%amount%&c more to purchase this!"
     max-level:
       material: "BARRIER"
       enchanted: true

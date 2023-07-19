@@ -85,6 +85,13 @@
             <systemPath>${basedir}/libs/JewelsCobbleCubes.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>net.abyssdev</groupId>
+            <artifactId>minerals</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/JewelsMinerals.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>

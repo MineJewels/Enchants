@@ -2,3 +2,4 @@ name: JewelsPickaxes
 version: '${project.version}'
 main: org.minejewels.jewelspickaxes.JewelsPickaxes
 api-version: '1.19'
+depend: [AbyssLib, JewelsCobbleCubes, JewelsMinerals]
