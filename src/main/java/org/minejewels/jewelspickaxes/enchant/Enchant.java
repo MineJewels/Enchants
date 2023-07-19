@@ -2,6 +2,7 @@ package org.minejewels.jewelspickaxes.enchant;
 
 import lombok.Data;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.minejewels.jewelscobblecubes.events.CobbleCubeBreakEvent;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,8 +15,8 @@ public abstract class Enchant {
     private final long basePrice;
     private final double priceIncrease, baseChance, chanceIncrease;
 
-    public abstract void onEquip(final Player player, final int level);
-    public abstract void onUnequip(final Player player, final int level);
+    public abstract void onEquip(final Player player, final ItemStack item, final int level);
+    public abstract void onUnequip(final Player player, final ItemStack item, final int level);
     public abstract void onBreak(final CobbleCubeBreakEvent event, final Player player, final int level);
 
     public double getChance(final int level) {

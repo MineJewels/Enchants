@@ -1,0 +1,84 @@
+main-menu:
+  title: "&8Pickaxe Enchants"
+  rows: 3
+  borders:
+    "gray":
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+      lore: [ ]
+      slots:
+        - "0-26"
+  display-pickaxe:
+    enabled: true
+    slot: 4
+  special-items:
+    max-level:
+      material: "BARRIER"
+      name: "&cAlready Maxed"
+      lore:
+        - "&cYou already maxed this enchantment!"
+  enchants:
+    "efficiency":
+      slot: 9
+      item:
+        material: "DIAMOND_PICKAXE"
+        name: "&a&lEfficiency"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&aLevel: &f%current%&a/&f%max%"
+          - "&aPrice: &f%cost%"
+enchant-menu:
+  title: "&8Upgrading %enchant%"
+  rows: 3
+  borders:
+    "gray":
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+      lore: [ ]
+      slots:
+        - "0-26"
+  display-pickaxe:
+    enabled: false
+    slot: 0
+  special-items:
+    back:
+      slot: 18
+      material: "ARROW"
+      name: "&dBack"
+      lore:
+        - "&dBack to enchant menu!"
+  items:
+    purchasabe:
+      material: "EMERALD"
+      enchanted: true
+      name: "&a%level% Levels"
+      lore:
+        - "&aNew Level: %new-level%"
+        - "&aCost: %cost%"
+        - "&7"
+    not-enough:
+      material: "BARRIER"
+      enchanted: true
+      name: "&c%level% &cLevels"
+      lore:
+        - "&cNew Level: %new-level%"
+        - "&cCost: %cost%"
+        - "&c"
+        - "&cYou need &4%amount&c more to purchase this!"
+    max-level:
+      material: "BARRIER"
+      enchanted: true
+      name: "&c%level% Levels"
+      lore:
+        - "&cThis would go over the enchantment max limit!"
+  levels:
+    1: 9
+    5: 10
+    10: 11
+    25: 12
+    50: 13
+    100: 14
+    250: 15
+    500: 16
+    1000: 17

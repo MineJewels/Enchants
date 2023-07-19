@@ -1,6 +1,7 @@
 package org.minejewels.jewelspickaxes.enchant.impl;
 
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.minejewels.jewelscobblecubes.events.CobbleCubeBreakEvent;
 import org.minejewels.jewelspickaxes.JewelsPickaxes;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
@@ -20,12 +21,12 @@ public class EfficiencyEnchant extends Enchant {
     }
 
     @Override
-    public void onEquip(final Player player, final int level) {
+    public void onEquip(final Player player, final ItemStack item, final int level) {
         player.sendMessage("Equipped");
     }
 
     @Override
-    public void onUnequip(Player player, int level) {
+    public void onUnequip(Player player, final ItemStack item,  int level) {
         player.sendMessage("Unequipped");
     }
 

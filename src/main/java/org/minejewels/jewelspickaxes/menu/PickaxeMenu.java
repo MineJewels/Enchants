@@ -20,22 +20,32 @@ public class PickaxeMenu extends AbyssMenu {
     private final JewelsPickaxes plugin;
     private final EnchantUtils enchantUtils;
 
+    private final ItemStack maxLevelItem;
+
     public PickaxeMenu(final JewelsPickaxes plugin) {
         super(plugin.getMenusConfig(), "main-menu.");
 
         this.plugin = plugin;
         this.enchantUtils = plugin.getEnchantUtils();
+
+        this.maxLevelItem = plugin.getMenusConfig().getItemStack("main-menu.special-items.max-level");
     }
 
     public void open(final Player player, final UUID pickaxeUUID) {
+
         final MenuBuilder builder = this.createBase();
 
         if (this.enchantUtils.getPickaxeFromUUID(player, pickaxeUUID) ==  null) {
             this.plugin.getMessageCache().sendMessage(player, "messages.pickaxe-in-inventory");
             return;
         }
-
         final ItemStack pickaxe = this.enchantUtils.getPickaxeFromUUID(player, pickaxeUUID);
+
+        player.sendMessage(String.valueOf(this.plugin.getMenusConfig().getInt("main-menu.display-pickaxe.slot")));
+
+        if (this.plugin.getMenusConfig().getBoolean("main-menu.display-pickaxe.enabled")) {
+            builder.setItem(this.plugin.getMenusConfig().getInt("main-menu.display-pickaxe.slot"), pickaxe);
+        }
 
         for (final String key : this.plugin.getMenusConfig().getSectionKeys("main-menu.enchants")) {
 
@@ -47,8 +57,8 @@ public class PickaxeMenu extends AbyssMenu {
 
             final PickaxeMenuItem item = new PickaxeMenuItem(
                     enchant,
-                    this.plugin.getMenusConfig().getItemBuilder("main-menu.enchants." + key.toUpperCase() + ".item"),
-                    this.plugin.getMenusConfig().getInt("main-menu.enchants." + key.toUpperCase() + ".slot")
+                    this.plugin.getMenusConfig().getItemBuilder("main-menu.enchants." + key.toLowerCase() + ".item"),
+                    this.plugin.getMenusConfig().getInt("main-menu.enchants." + key.toLowerCase() + ".slot")
             );
 
             final PlaceholderReplacer replacer = new PlaceholderReplacer()
@@ -57,7 +67,7 @@ public class PickaxeMenu extends AbyssMenu {
                     .addPlaceholder("%current%", Utils.format(this.enchantUtils.getLevel(pickaxe, enchant)))
                     .addPlaceholder("%max%", Utils.format(enchant.getMaxLevel()));
 
-            builder.setItem(item.getSlot(), item.getItem().parse(replacer));
+            builder.setItem(item.getSlot(), item.getItem().setHideItemFlags(true).parse(replacer));
 
             builder.addClickEvent(item.getSlot(), event -> {
 
@@ -69,11 +79,15 @@ public class PickaxeMenu extends AbyssMenu {
                 final int level = this.enchantUtils.getLevel(pickaxe, enchant);
 
                 if (level >= enchant.getMaxLevel()) {
-                    // setMaxLevel temp item
+                    builder.setTempItem(
+                            event.getSlot(),
+                            this.maxLevelItem,
+                            60
+                    );
                     return;
                 }
 
-                // Open Menu here
+                new EnchantMenu(plugin).open(player, enchant, pickaxeUUID);
             });
         }
 

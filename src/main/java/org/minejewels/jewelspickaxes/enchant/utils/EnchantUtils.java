@@ -133,11 +133,7 @@ public class EnchantUtils {
 
         final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID);
 
-        System.out.println(1);
-
         if (!this.isPickaxe(item)) return;
-
-        System.out.println(2);
 
         final Pickaxe pickaxe = this.getPickaxeType(item);
 
@@ -154,21 +150,15 @@ public class EnchantUtils {
 
             for (String key : this.enchantOrder) {
 
-                player.sendMessage("Yes");
-
                 final Optional<Enchant> optionalEnchant = this.plugin.getEnchantRegistry().get(key.toUpperCase());
 
                 if (!optionalEnchant.isPresent()) {
                     continue;
                 }
 
-                player.sendMessage("Yesser");
-
                 final Enchant enchant = optionalEnchant.get();
 
                 if (!this.hasEnchantment(item, enchant)) continue;
-
-                player.sendMessage("Yessest");
 
                 final int level = this.getLevel(item, enchant);
 

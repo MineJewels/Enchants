@@ -11,9 +11,12 @@ import org.eclipse.collections.api.factory.Maps;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
 import org.minejewels.jewelspickaxes.enchant.impl.EfficiencyEnchant;
 import org.minejewels.jewelspickaxes.enchant.listener.BlockBreak;
+import org.minejewels.jewelspickaxes.enchant.listener.PickaxeListener;
+import org.minejewels.jewelspickaxes.enchant.listener.PlayerHold;
 import org.minejewels.jewelspickaxes.enchant.player.cache.EnchantPlayerCache;
 import org.minejewels.jewelspickaxes.enchant.registry.EnchantRegistry;
 import org.minejewels.jewelspickaxes.enchant.utils.EnchantUtils;
+import org.minejewels.jewelspickaxes.menu.PickaxeMenu;
 import org.minejewels.jewelspickaxes.pickaxe.Pickaxe;
 import org.minejewels.jewelspickaxes.pickaxe.commands.PickaxeCommand;
 import org.minejewels.jewelspickaxes.pickaxe.registry.PickaxeRegistry;
@@ -42,6 +45,8 @@ public final class JewelsPickaxes extends AbyssPlugin {
     private final EnchantUtils enchantUtils = new EnchantUtils(this);
     private final EnchantPlayerCache playerCache = new EnchantPlayerCache();
 
+    private final PickaxeMenu pickaxeMenu = new PickaxeMenu(this);
+
     @Override
     public void onEnable() {
 
@@ -51,6 +56,8 @@ public final class JewelsPickaxes extends AbyssPlugin {
         this.loadPickaxes();
 
         new BlockBreak(this);
+        new PickaxeListener(this);
+        new PlayerHold(this);
 
         new UpdateTask(this);
 
