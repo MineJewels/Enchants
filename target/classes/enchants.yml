@@ -58,3 +58,14 @@ enchants:
       base-minimum: 100
       base-maximum: 250
       increase: 1.5
+  "tsunami":
+    lore:
+      format: "&3 | &bTsunami &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 15
+    chance:
+      base-chance: 10.0
+      chance-increase: 5.0

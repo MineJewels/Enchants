@@ -20,5 +20,6 @@ org\minejewels\jewelspickaxes\pickaxe\commands\PickaxeCommand.class
 org\minejewels\jewelspickaxes\pickaxe\registry\UpdateRegistry.class
 org\minejewels\jewelspickaxes\enchant\impl\MineralGreedEnchant.class
 org\minejewels\jewelspickaxes\enchant\player\cache\EnchantPlayerCache.class
+org\minejewels\jewelspickaxes\enchant\impl\TsnuamiEnchant.class
 org\minejewels\jewelspickaxes\JewelsPickaxes.class
 org\minejewels\jewelspickaxes\pickaxe\registry\PickaxeRegistry.class

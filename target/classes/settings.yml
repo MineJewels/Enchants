@@ -4,5 +4,6 @@ enchant-order:
   - "haste"
   - "jump"
   - "mineral_greed"
+  - "tsunami"
 
 update-delay: 10 # 10 Seconds

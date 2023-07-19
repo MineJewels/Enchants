@@ -29,3 +29,8 @@ messages:
       enabled: true
       value:
         - "&a&l[!] &aYou have gained &2%amount%&a minerals from mineral greed!"
+  tsunami-activated:
+    message:
+      enabled: true
+      value:
+        - "&b&l[!] &bA tsunami has came through and destoryed &3%amount% &bblocks!"

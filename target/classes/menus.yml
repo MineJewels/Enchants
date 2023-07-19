@@ -69,6 +69,17 @@ main-menu:
           - "&bLevel: &f%current%&b/&f%max%"
           - "&bPrice: &f%cost%"
           - "&bChance: &f%chance%"
+    "tsunami":
+      slot: 14
+      item:
+        material: "NETHERITE_PICKAXE"
+        name: "&b&lTsunami"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+          - "&bChance: &f%chance%"
 enchant-menu:
   title: "&8Upgrading %enchant%"
   rows: 3

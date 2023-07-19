@@ -75,7 +75,8 @@ public final class JewelsPickaxes extends AbyssPlugin {
                 new JumpEnchant(this),
                 new HasteEnchant(this),
                 new SpeedEnchant(this),
-                new MineralGreedEnchant(this)
+                new MineralGreedEnchant(this),
+                new TsnuamiEnchant(this)
         ).forEach(enchant -> this.enchantRegistry.register(enchant.getName().toUpperCase(), enchant));
     }
 
