@@ -45,5 +45,10 @@ public class BlockBreak extends AbyssListener<JewelsPickaxes> {
         for (final Map.Entry<Enchant, Integer> enchant : enchantPlayer.getEnchants(pickaxeUUID).entrySet()) {
             enchant.getKey().onBreak(event, player, enchant.getValue());
         }
+
+        if (!this.plugin.getUpdateRegistry().containsValue(pickaxeUUID)) {
+            System.out.println(1);
+            this.plugin.getUpdateRegistry().register(player, pickaxeUUID);
+        }
     }
 }

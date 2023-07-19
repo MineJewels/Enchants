@@ -1,0 +1,14 @@
+org\minejewels\jewelspickaxes\enchant\player\EnchantPlayer.class
+org\minejewels\jewelspickaxes\enchant\utils\EnchantUtils.class
+org\minejewels\jewelspickaxes\pickaxe\task\UpdateTask.class
+org\minejewels\jewelspickaxes\enchant\listener\BlockBreak.class
+org\minejewels\jewelspickaxes\enchant\Enchant.class
+org\minejewels\jewelspickaxes\pickaxe\commands\sub\PickaxeGiveCommand.class
+org\minejewels\jewelspickaxes\pickaxe\commands\PickaxeCommand.class
+org\minejewels\jewelspickaxes\pickaxe\registry\UpdateRegistry.class
+org\minejewels\jewelspickaxes\enchant\player\cache\EnchantPlayerCache.class
+org\minejewels\jewelspickaxes\JewelsPickaxes.class
+org\minejewels\jewelspickaxes\pickaxe\Pickaxe.class
+org\minejewels\jewelspickaxes\enchant\impl\EfficiencyEnchant.class
+org\minejewels\jewelspickaxes\enchant\registry\EnchantRegistry.class
+org\minejewels\jewelspickaxes\pickaxe\registry\PickaxeRegistry.class

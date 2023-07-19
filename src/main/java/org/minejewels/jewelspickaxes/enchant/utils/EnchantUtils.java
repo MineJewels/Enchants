@@ -1,24 +1,28 @@
 package org.minejewels.jewelspickaxes.enchant.utils;
 
 import net.abyssdev.abysslib.nbt.NBTUtils;
+import net.abyssdev.abysslib.text.Color;
+import net.abyssdev.abysslib.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.eclipse.collections.api.factory.Maps;
 import org.minejewels.jewelspickaxes.JewelsPickaxes;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
 import org.minejewels.jewelspickaxes.pickaxe.Pickaxe;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 public class EnchantUtils {
 
     private final JewelsPickaxes plugin;
+    private final List<String> enchantOrder;
 
     public EnchantUtils(final JewelsPickaxes plugin) {
         this.plugin = plugin;
+
+        this.enchantOrder = this.plugin.getSettingsConfig().getStringList("enchant-order");
     }
 
     public boolean isPickaxe(final ItemStack pickaxe) {
@@ -35,12 +39,29 @@ public class EnchantUtils {
 
         for (final ItemStack itemStack : player.getInventory().getContents()) {
             if (!this.isPickaxe(itemStack)) continue;
-            if (!(this.getPickaxeUUID(itemStack) == uuid)) continue;
+            if (!this.getPickaxeUUID(itemStack).toString().equalsIgnoreCase(uuid.toString())) continue;
 
             return itemStack;
         }
 
         return null;
+    }
+
+    public Integer getSlotFromUUID(final Player player, final UUID uuid) {
+
+        int count = -1;
+
+        for (final ItemStack itemStack : player.getInventory().getContents()) {
+
+            count++;
+
+            if (!this.isPickaxe(itemStack)) continue;
+            if (!this.getPickaxeUUID(itemStack).toString().equalsIgnoreCase(uuid.toString())) continue;
+
+            return count;
+        }
+
+        return -1;
     }
 
     public Pickaxe getPickaxeType(final ItemStack pickaxe) {
@@ -67,7 +88,6 @@ public class EnchantUtils {
     }
 
     public boolean hasEnchantment(final ItemStack pickaxe, final Enchant enchant) {
-        if (!this.isPickaxe(pickaxe)) return false;
         return NBTUtils.get().contains(pickaxe, "PICKAXE-ENCHANT-" + enchant.getName().toUpperCase());
     }
 
@@ -81,16 +101,21 @@ public class EnchantUtils {
 
         final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-ENCHANT-" + enchant.getName().toUpperCase(), level);
 
-        player.getInventory().setItemInMainHand(updatedItem);
+        player.getInventory().setItem(
+                this.getSlotFromUUID(player, this.getPickaxeUUID(pickaxe)),
+                updatedItem
+        );
 
         this.plugin.getPlayerCache().getEnchantPlayer(player).updatePickaxe(pickaxe, this.plugin.getEnchantUtils());
+
+        this.updatePickaxe(player, this.getPickaxeUUID(updatedItem));
     }
 
     public void removeLevel(final Player player, final ItemStack pickaxe, final Enchant enchant, final int level) {
 
         final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-ENCHANT-" + enchant.getName().toUpperCase(), this.getLevel(pickaxe, enchant) - level);
 
-        player.getInventory().setItemInMainHand(updatedItem);
+        this.updatePickaxe(player, this.getPickaxeUUID(updatedItem));
 
         this.plugin.getPlayerCache().getEnchantPlayer(player).updatePickaxe(pickaxe, this.plugin.getEnchantUtils());
     }
@@ -99,8 +124,68 @@ public class EnchantUtils {
 
         final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-ENCHANT-" + enchant.getName().toUpperCase(), this.getLevel(pickaxe, enchant) + level);
 
-        player.getInventory().setItemInMainHand(updatedItem);
+        this.updatePickaxe(player, this.getPickaxeUUID(updatedItem));
 
         this.plugin.getPlayerCache().getEnchantPlayer(player).updatePickaxe(pickaxe, this.plugin.getEnchantUtils());
+    }
+
+    public void updatePickaxe(final Player player, final UUID pickaxeUUID) {
+
+        final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID);
+
+        System.out.println(1);
+
+        if (!this.isPickaxe(item)) return;
+
+        System.out.println(2);
+
+        final Pickaxe pickaxe = this.getPickaxeType(item);
+
+        final ItemMeta pickaxeMeta = item.getItemMeta();
+
+        final List<String> newLore = new LinkedList<>();
+
+        for (final String line : pickaxe.getItem().getLore()) {
+
+            if (!line.contains("%enchants%")) {
+                newLore.add(line.replace("%owner%", player.getName()));
+                continue;
+            }
+
+            for (String key : this.enchantOrder) {
+
+                player.sendMessage("Yes");
+
+                final Optional<Enchant> optionalEnchant = this.plugin.getEnchantRegistry().get(key.toUpperCase());
+
+                if (!optionalEnchant.isPresent()) {
+                    continue;
+                }
+
+                player.sendMessage("Yesser");
+
+                final Enchant enchant = optionalEnchant.get();
+
+                if (!this.hasEnchantment(item, enchant)) continue;
+
+                player.sendMessage("Yessest");
+
+                final int level = this.getLevel(item, enchant);
+
+                newLore.add(enchant.getLoreFormat().replace("%level%", Utils.format(level)));
+            }
+        }
+
+        pickaxeMeta.setLore(Color.parse(newLore));
+
+        item.setItemMeta(pickaxeMeta);
+
+        if (this.getSlotFromUUID(player, pickaxeUUID) == -1) return;
+
+        System.out.println(3);
+
+        player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), item);
+
+        player.updateInventory();
     }
 }

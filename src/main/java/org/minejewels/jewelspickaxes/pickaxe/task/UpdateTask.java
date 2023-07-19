@@ -24,7 +24,7 @@ public class UpdateTask extends AbyssTask<JewelsPickaxes> {
 
             if (!(plugin.getEnchantUtils().getPickaxeFromUUID(pickaxe.getKey(), pickaxe.getValue()) == null)) continue;
 
-            // update code
+            this.plugin.getEnchantUtils().updatePickaxe(pickaxe.getKey(), pickaxe.getValue());
         }
 
         this.plugin.getUpdateRegistry().getRegistry().clear();

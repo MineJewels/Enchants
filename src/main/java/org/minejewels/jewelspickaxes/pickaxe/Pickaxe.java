@@ -25,10 +25,10 @@ public class Pickaxe {
 
         ItemStack pickaxe = this.item.setHideItemFlags(true).parse(new PlaceholderReplacer().addPlaceholder("%owner%", player.getName()));
 
-        pickaxe.getItemMeta().setUnbreakable(true);
-
         pickaxe = NBTUtils.get().setString(pickaxe, "PICKAXE-TYPE", name.toUpperCase());
         pickaxe = NBTUtils.get().setString(pickaxe, "PICKAXE-UUID", UUID.randomUUID().toString());
+
+        player.getInventory().addItem(pickaxe);
 
         for (Map.Entry<Enchant, Integer> enchant : this.defaultEnchantments.entrySet()) {
             plugin.getEnchantUtils().setLevel(player, pickaxe, enchant.getKey(), enchant.getValue());
