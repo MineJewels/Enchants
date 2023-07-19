@@ -1,0 +1,23 @@
+main-menu:
+  title: "Pickaxe Enchants"
+  rows: 3
+  borders:
+    "gray":
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+      lore: [ ]
+      slots:
+        - "0-26"
+  display-pickaxe:
+    enabled: true
+    slot: 4
+  enchants:
+    "efficiency":
+      slot: 9
+      material: "DIAMOND_PICKAXE"
+      name: "&a&lEfficiency"
+      lore:
+        - "&8Pickaxe Enchantment"
+        - "&7"
+        - "&aLevel: &f%current%&a/&f%max"
+        - "&aPrice: &f%price%"

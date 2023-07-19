@@ -18,11 +18,15 @@ public abstract class Enchant {
     public abstract void onUnequip(final Player player, final int level);
     public abstract void onBreak(final CobbleCubeBreakEvent event, final Player player, final int level);
 
-    private double getChance(final double level) {
+    public double getChance(final int level) {
         return this.baseChance * (this.chanceIncrease + (level - 1));
     }
 
-    private boolean hasChance(final int level) {
+    public double getCost(final int level) {
+        return this.basePrice * (this.priceIncrease + (level - 1));
+    }
+
+    public boolean hasChance(final int level) {
         if (this.baseChance == 100.0) return true;
         return this.getChance(level) >= ThreadLocalRandom.current().nextDouble(100);
     }

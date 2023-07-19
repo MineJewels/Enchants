@@ -14,6 +14,11 @@ messages:
       enabled: true
       value:
         - "&c&l[!] &cInvalid pickaxe!"
+  pickaxe-in-inventory:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cYou need a pickaxe in your inventory to do this!"
   pickaxe-given:
     message:
       enabled: true
