@@ -11,26 +11,26 @@ public class EfficiencyEnchant extends Enchant {
         super(
                 "efficiency",
                 plugin.getEnchantsConfig().getColoredString("enchants.efficiency.lore.format"),
-                plugin.getEnchantsConfig().getBoolean("enchants.efficiency.requirements.enabled"),
-                plugin.getEnchantsConfig().getInt("enchants.efficiency.requirements.enabled"),
                 plugin.getEnchantsConfig().getInt("enchants.efficiency.levels.max-level"),
                 plugin.getEnchantsConfig().getLong("enchants.efficiency.pricing.base-price"),
-                plugin.getEnchantsConfig().getDouble("enchants.efficiency.pricing.price-increase")
+                plugin.getEnchantsConfig().getDouble("enchants.efficiency.pricing.price-increase"),
+                plugin.getEnchantsConfig().getDouble("enchants.efficiency.chance.base-chance"),
+                plugin.getEnchantsConfig().getDouble("enchants.efficiency.chance.chance-increase")
         );
     }
 
     @Override
     public void onEquip(final Player player, final int level) {
-
+        player.sendMessage("Equipped");
     }
 
     @Override
     public void onUnequip(Player player, int level) {
-
+        player.sendMessage("Unequipped");
     }
 
     @Override
     public void onBreak(CobbleCubeBreakEvent event, Player player, int level) {
-
+        player.sendMessage("Mined");
     }
 }

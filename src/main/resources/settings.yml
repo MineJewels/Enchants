@@ -1,0 +1,4 @@
+enchant-order:
+  - "EFFICIENCY"
+
+update-delay: 10 # 10 Seconds

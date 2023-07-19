@@ -1,0 +1,12 @@
+pickaxes:
+  "default":
+    unbreakable: true
+    item:
+      material: "DIAMOND_PICKAXE"
+      name: "&b&lCobble Cube Pickaxe"
+      lore:
+        - "&f%owner%"
+        - "&7"
+        - "&e%enchants%"
+    default-enchantments:
+      - "efficiency;1"

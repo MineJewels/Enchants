@@ -1,0 +1,21 @@
+messages:
+  no-permission:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cNo permission!"
+  invalid-player:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cInvalid player!"
+  invalid-pickaxe:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cInvalid pickaxe!"
+  pickaxe-given:
+    message:
+      enabled: true
+      value:
+        - "&3&l[!] &bYou have been given a &3%type%&b pickaxe!"
