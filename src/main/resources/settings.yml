@@ -5,5 +5,7 @@ enchant-order:
   - "jump"
   - "mineral_greed"
   - "tsunami"
+  - "jackhammer"
+  - "key_finder"
 
 update-delay: 10 # 10 Seconds

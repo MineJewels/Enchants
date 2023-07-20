@@ -80,6 +80,28 @@ main-menu:
           - "&bLevel: &f%current%&b/&f%max%"
           - "&bPrice: &f%cost%"
           - "&bChance: &f%chance%"
+    "jackhammer":
+      slot: 15
+      item:
+        material: "HOPPER"
+        name: "&b&lJackhammer"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+          - "&bChance: &f%chance%"
+    "keyfinder":
+      slot: 15
+      item:
+        material: "TRIPWIRE_HOOK"
+        name: "&b&lKey Finder"
+        lore:
+          - "&8Pickaxe Enchantment"
+          - "&7"
+          - "&bLevel: &f%current%&b/&f%max%"
+          - "&bPrice: &f%cost%"
+          - "&bChance: &f%chance%"
 enchant-menu:
   title: "&8Upgrading %enchant%"
   rows: 3

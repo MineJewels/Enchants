@@ -5,6 +5,7 @@ org\minejewels\jewelspickaxes\pickaxe\task\UpdateTask.class
 org\minejewels\jewelspickaxes\enchant\Enchant.class
 org\minejewels\jewelspickaxes\pickaxe\commands\sub\PickaxeGiveCommand.class
 org\minejewels\jewelspickaxes\enchant\impl\HasteEnchant.class
+org\minejewels\jewelspickaxes\enchant\impl\JackhammerEnchant.class
 org\minejewels\jewelspickaxes\enchant\impl\JumpEnchant.class
 org\minejewels\jewelspickaxes\enchant\impl\SpeedEnchant.class
 org\minejewels\jewelspickaxes\enchant\listener\PickaxeListener.class
@@ -14,6 +15,7 @@ org\minejewels\jewelspickaxes\menu\PickaxeMenu.class
 org\minejewels\jewelspickaxes\enchant\registry\EnchantRegistry.class
 org\minejewels\jewelspickaxes\enchant\player\EnchantPlayer.class
 org\minejewels\jewelspickaxes\enchant\listener\PlayerHold.class
+org\minejewels\jewelspickaxes\enchant\impl\KeyFinderEnchant.class
 org\minejewels\jewelspickaxes\enchant\listener\BlockBreak.class
 org\minejewels\jewelspickaxes\menu\items\EnchantItem.class
 org\minejewels\jewelspickaxes\pickaxe\commands\PickaxeCommand.class

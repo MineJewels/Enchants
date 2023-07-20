@@ -69,3 +69,28 @@ enchants:
     chance:
       base-chance: 10.0
       chance-increase: 5.0
+  "jackhammer":
+    lore:
+      format: "&3 | &bJackhammer &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 15
+    chance:
+      base-chance: 10.0
+      chance-increase: 5.0
+  "key_finder":
+    lore:
+      format: "&3 | &bKey Finder &3%level%"
+    pricing:
+      base-price: 100
+      price-increase: 1.5
+    levels:
+      max-level: 15
+    chance:
+      base-chance: 10.0
+      chance-increase: 5.0
+    rewards:
+      - "broadcast %player% 1"
+      - "broadcast %player% 2"

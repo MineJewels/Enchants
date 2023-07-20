@@ -1,7 +1,9 @@
 package org.minejewels.jewelspickaxes.enchant.impl;
 
+import net.abyssdev.abysslib.economy.registry.impl.DefaultEconomyRegistry;
 import net.abyssdev.abysslib.placeholder.PlaceholderReplacer;
 import net.abyssdev.abysslib.utils.Utils;
+import net.abyssdev.me.lucko.helper.Events;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -11,6 +13,7 @@ import org.minejewels.jewelscobblecubes.JewelsCobbleCubes;
 import org.minejewels.jewelscobblecubes.cube.block.CobbleCubeBlock;
 import org.minejewels.jewelscobblecubes.cube.player.PlayerCobbleCube;
 import org.minejewels.jewelscobblecubes.events.CobbleCubeBreakEvent;
+import org.minejewels.jewelscobblecubes.events.CobbleCubeSellEvent;
 import org.minejewels.jewelscobblecubes.upgrade.CubeUpgrade;
 import org.minejewels.jewelscobblecubes.utils.RegionUtils;
 import org.minejewels.jewelspickaxes.JewelsPickaxes;
@@ -71,8 +74,29 @@ public class TsnuamiEnchant extends Enchant {
             storageCount++;
             if (storageCount > maxStorage) continue;
 
-            cobbleCube.addDrop(block.getType());
+            if (!cobbleCube.isAutosellEnabled()) {
+                cobbleCube.addDrop(block.getType());
+            }
+
             destoryCount++;
+        }
+
+        long currentValue = 0;
+
+        for (Map.Entry<CobbleCubeBlock, Long> entry : cobbleCube.getBlockStorage().entrySet()) {
+            currentValue += entry.getKey().getPrice() * entry.getValue();
+        }
+
+        if (cobbleCube.isAutosellEnabled()) {
+            DefaultEconomyRegistry.get().getEconomy("vault").addBalance(player, currentValue);
+
+            final CobbleCubeSellEvent sellEvent = new CobbleCubeSellEvent(
+                    player,
+                    cobbleCube,
+                    currentValue
+            );
+
+            Events.call(sellEvent);
         }
 
         final PlaceholderReplacer replacer = new PlaceholderReplacer()

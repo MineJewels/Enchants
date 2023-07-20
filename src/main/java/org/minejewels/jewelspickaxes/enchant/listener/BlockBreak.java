@@ -32,6 +32,8 @@ public class BlockBreak extends AbyssListener<JewelsPickaxes> {
         final Player player = event.getPlayer();
         final ItemStack item = player.getInventory().getItemInMainHand();
 
+        event.getEvent().setDropItems(false);
+
         if (!this.enchantUtils.isPickaxe(item)) return;
 
         final UUID pickaxeUUID = this.enchantUtils.getPickaxeUUID(item);
