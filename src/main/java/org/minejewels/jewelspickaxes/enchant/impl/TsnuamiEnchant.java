@@ -30,6 +30,7 @@ public class TsnuamiEnchant extends Enchant {
                 "tsunami",
                 plugin.getEnchantsConfig().getColoredString("enchants.tsunami.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.tsunami.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.tsunami.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.tsunami.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.tsunami.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.tsunami.chance.base-chance"),

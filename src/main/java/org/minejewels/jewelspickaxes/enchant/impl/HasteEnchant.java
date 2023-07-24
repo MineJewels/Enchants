@@ -15,6 +15,7 @@ public class HasteEnchant extends Enchant {
                 "haste",
                 plugin.getEnchantsConfig().getColoredString("enchants.haste.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.haste.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.haste.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.haste.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.haste.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.haste.chance.base-chance"),

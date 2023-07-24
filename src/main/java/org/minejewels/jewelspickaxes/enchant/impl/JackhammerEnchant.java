@@ -33,6 +33,7 @@ public class JackhammerEnchant extends Enchant {
                 "jackhammer",
                 plugin.getEnchantsConfig().getColoredString("enchants.jackhammer.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.jackhammer.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.jackhammer.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.jackhammer.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.jackhammer.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.jackhammer.chance.base-chance"),

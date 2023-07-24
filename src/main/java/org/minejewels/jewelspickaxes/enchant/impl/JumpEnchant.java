@@ -15,6 +15,7 @@ public class JumpEnchant extends Enchant {
                 "jump",
                 plugin.getEnchantsConfig().getColoredString("enchants.jump.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.jump.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.jump.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.jump.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.jump.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.jump.chance.base-chance"),

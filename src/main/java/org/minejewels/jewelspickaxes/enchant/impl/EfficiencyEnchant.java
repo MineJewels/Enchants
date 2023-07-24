@@ -15,6 +15,7 @@ public class EfficiencyEnchant extends Enchant {
                 "efficiency",
                 plugin.getEnchantsConfig().getColoredString("enchants.efficiency.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.efficiency.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.efficiency.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.efficiency.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.efficiency.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.efficiency.chance.base-chance"),

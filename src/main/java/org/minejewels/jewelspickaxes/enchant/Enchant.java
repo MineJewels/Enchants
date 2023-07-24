@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class Enchant {
 
     private final String name, loreFormat;
-    private final int maxLevel;
+    private final int maxLevel, requiredLevel;
     private final long basePrice;
     private final double priceIncrease, baseChance, chanceIncrease;
 

@@ -27,6 +27,7 @@ public class KeyFinderEnchant extends Enchant {
                 "key_finder",
                 plugin.getEnchantsConfig().getColoredString("enchants.key_finder.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.key_finder.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.key_finder.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.key_finder.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.key_finder.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.key_finder.chance.base-chance"),

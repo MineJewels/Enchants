@@ -54,3 +54,8 @@ messages:
       enabled: true
       value:
         - "&c&l[!] &cTo continue mining, ascend your pickaxe!"
+  level-too-low:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cYou need level %level% to run this"

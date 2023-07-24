@@ -17,6 +17,7 @@ public class SpeedEnchant extends Enchant {
                 "speed",
                 plugin.getEnchantsConfig().getColoredString("enchants.speed.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.speed.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.speed.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.speed.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.speed.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.speed.chance.base-chance"),

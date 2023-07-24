@@ -29,6 +29,7 @@ public class MineralGreedEnchant extends Enchant {
                 "mineral_greed",
                 plugin.getEnchantsConfig().getColoredString("enchants.mineral_greed.lore.format"),
                 plugin.getEnchantsConfig().getInt("enchants.mineral_greed.levels.max-level"),
+                plugin.getEnchantsConfig().getInt("enchants.mineral_greed.levels.level-required"),
                 plugin.getEnchantsConfig().getLong("enchants.mineral_greed.pricing.base-price"),
                 plugin.getEnchantsConfig().getDouble("enchants.mineral_greed.pricing.price-increase"),
                 plugin.getEnchantsConfig().getDouble("enchants.mineral_greed.chance.base-chance"),

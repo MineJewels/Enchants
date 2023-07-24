@@ -60,6 +60,7 @@ public class PickaxeMenu extends AbyssMenu {
             );
 
             final PlaceholderReplacer replacer = new PlaceholderReplacer()
+                    .addPlaceholder("%required-level%", Utils.format(enchant.getRequiredLevel()))
                     .addPlaceholder("%chance%", Utils.format(enchant.getChance(this.enchantUtils.getLevel(pickaxe, enchant))))
                     .addPlaceholder("%cost%", Utils.format(enchant.getCost(this.enchantUtils.getLevel(pickaxe, enchant) + 1)))
                     .addPlaceholder("%current%", Utils.format(this.enchantUtils.getLevel(pickaxe, enchant)))
@@ -71,6 +72,11 @@ public class PickaxeMenu extends AbyssMenu {
 
                 if (this.enchantUtils.getPickaxeFromUUID(player, pickaxeUUID) ==  null) {
                     this.plugin.getMessageCache().sendMessage(player, "messages.pickaxe-in-inventory");
+                    return;
+                }
+
+                if (enchant.getRequiredLevel() > this.enchantUtils.getLevel(pickaxe)) {
+                    this.plugin.getMessageCache().sendMessage(player, "messages.level-too-low", new PlaceholderReplacer().addPlaceholder("%level%", Utils.format(enchant.getRequiredLevel())));
                     return;
                 }
 
