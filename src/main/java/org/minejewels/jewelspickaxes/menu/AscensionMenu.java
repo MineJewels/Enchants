@@ -103,6 +103,10 @@ public class AscensionMenu extends AbyssMenu {
 
                 this.open(player, uuid);
             });
+
+            builder.addClickEvent(this.cancelPurchasable.getSlot(), event -> {
+                player.closeInventory();
+            });
         }
 
         if (result == AscendUtil.AscensionResult.NOT_ENOUGH_EXP) {
@@ -140,7 +144,7 @@ public class AscensionMenu extends AbyssMenu {
             builder.setItem(this.cancelMaxLevel.getSlot(), this.cancelMaxLevel.getItem().parse(replacer));
             builder.setItem(this.infoMaxLevel.getSlot(), this.infoMaxLevel.getItem().parse(replacer));
 
-            builder.setItem(this.newPickaxeSlot, this.infoMaxLevel.getItem());
+            builder.setItem(this.newPickaxeSlot, this.infoMaxLevel.getItem().parse(replacer));
         }
 
         player.openInventory(builder.build());
