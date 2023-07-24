@@ -157,3 +157,151 @@ enchant-menu:
     250: 15
     500: 16
     1000: 17
+ascend-menu:
+  title: "&8Ascension Menu"
+  rows: 5
+  left-side: [10, 11, 19]
+  right-side: [13, 14, 23]
+  borders:
+    "gray":
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+      lore: [ ]
+      slots:
+        - "0-44"
+  constant-items:
+    current-pickaxe: 28
+    new-pickaxe: 32
+  items:
+    confirm:
+      purchasable:
+        slot: 16
+        item:
+          material: "LIME_DYE"
+          enchanted: true
+          name: "&a&lConfirm"
+          lore:
+            - "&7"
+      not-purchasable:
+        slot: 16
+        item:
+          material: "BARRIER"
+          enchanted: true
+          name: "&c&lEXP Needed"
+          lore:
+            - "&7"
+      max-level:
+        slot: 16
+        item:
+          material: "BARRIER"
+          enchanted: true
+          name: "&c&lMax Level"
+          lore:
+            - "&7"
+    cancel:
+      purchasable:
+        slot: 16
+        item:
+          material: "RED_DYE"
+          enchanted: true
+          name: "&c&lCancel"
+          lore:
+            - "&7"
+      not-purchasable:
+        slot: 16
+        item:
+          material: "BARRIER"
+          enchanted: true
+          name: "&c&lEXP Needed"
+          lore:
+            - "&7"
+      max-level:
+        slot: 16
+        item:
+          material: "BARRIER"
+          enchanted: true
+          name: "&c&lMax Level"
+          lore:
+            - "&7"
+    upgrade-info:
+      purchasable:
+        slot: 11
+        item:
+          material: "GREEN_WOOL"
+          enchanted: true
+          name: "&a&lInfo"
+          lore:
+            - "&7"
+            - "&a Old Level: &f%old-level%"
+            - "&a New Level: &f%new-level%"
+      not-purchasable:
+        slot: 11
+        item:
+          material: "RED_WOOL"
+          enchanted: true
+          name: "&c&lInfo"
+          lore:
+            - "&7"
+            - "&a Old Level: &f%old-level%"
+            - "&a New Level: &f%new-level%"
+            - "&7"
+            - "&7&o (( You need more EXP ))"
+      max-level:
+        slot: 11
+        item:
+          material: "RED_WOOL"
+          enchanted: true
+          name: "&c&lInfo"
+          lore:
+            - "&7"
+            - "&a Old Level: &f%old-level%"
+            - "&a New Level: &fN/A"
+            - "&7"
+            - "&7&o (( You are the max level ))"
+    left-side:
+      purchasable:
+        item:
+          material: "LIME_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&a&lUpgrade"
+          lore:
+            - "&7"
+      not-purchasable:
+        item:
+          material: "RED_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&c&lUpgrade"
+          lore:
+            - "&7"
+            - "&7&o (( You need more EXP ))"
+      max-level:
+        item:
+          material: "RED_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&c&lUpgrade"
+          lore:
+            - "&7"
+            - "&7&o (( You are the max level ))"
+    right-side:
+      purchasable:
+        item:
+          material: "LIME_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&a&lUpgrade"
+          lore:
+            - "&7"
+      not-purchasable:
+        item:
+          material: "LIME_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&c&lUpgrade"
+          lore:
+            - "&7"
+      max-level:
+        item:
+          material: "RED_STAINED_GLASS_PANE"
+          enchanted: true
+          name: "&c&lUpgrade"
+          lore:
+            - "&7"
+            - "&7&o (( You are the max level ))"

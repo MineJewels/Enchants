@@ -222,7 +222,7 @@ public class EnchantUtils {
 
     public ItemStack getNewPickaxe(final Player player, final UUID pickaxeUUID, final int newLevel) {
 
-        final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID);
+        final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID).clone();
 
         if (!this.isPickaxe(item)) return item;
 
@@ -237,8 +237,8 @@ public class EnchantUtils {
             if (!line.contains("%enchants%")) {
                 newLore.add(line
                         .replace("%owner%", player.getName())
-                        .replace("%level%", Utils.format(newLevel)
-                        .replace("%exp%", Utils.format(0)
+                        .replace("%level%", Utils.format(newLevel))
+                        .replace("%exp%", Utils.format(0))
                         .replace("%max-exp%", Utils.format(this.plugin.getAscendUtil().getNeededExperience(newLevel)))
                         .replace("%progress-bar%", Utils.getProgressBar(
                                 0,
@@ -247,7 +247,7 @@ public class EnchantUtils {
                                 "|",
                                 "&a",
                                 "&c")
-                        ))));
+                        ));
                 continue;
             }
 
@@ -271,6 +271,7 @@ public class EnchantUtils {
 
         pickaxeMeta.setLore(Color.parse(newLore));
 
+        item.setType(this.plugin.getAscendRegistry().get(newLevel).get().getNewMaterial());
         item.setItemMeta(pickaxeMeta);
 
         return item;

@@ -1,5 +1,6 @@
 org\minejewels\jewelspickaxes\menu\items\PickaxeMenuItem.class
 org\minejewels\jewelspickaxes\enchant\utils\EnchantUtils.class
+org\minejewels\jewelspickaxes\ascend\commands\AscensionCommand.class
 org\minejewels\jewelspickaxes\menu\EnchantMenu.class
 org\minejewels\jewelspickaxes\pickaxe\task\UpdateTask.class
 org\minejewels\jewelspickaxes\ascend\registry\AscendRegistry.class
@@ -16,6 +17,7 @@ org\minejewels\jewelspickaxes\pickaxe\Pickaxe.class
 org\minejewels\jewelspickaxes\enchant\impl\EfficiencyEnchant.class
 org\minejewels\jewelspickaxes\menu\PickaxeMenu.class
 org\minejewels\jewelspickaxes\enchant\registry\EnchantRegistry.class
+org\minejewels\jewelspickaxes\menu\AscensionMenu.class
 org\minejewels\jewelspickaxes\enchant\player\EnchantPlayer.class
 org\minejewels\jewelspickaxes\enchant\listener\PlayerHold.class
 org\minejewels\jewelspickaxes\ascend\utils\AscendUtil$1.class

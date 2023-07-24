@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.factory.Maps;
 import org.minejewels.jewelspickaxes.ascend.Ascend;
+import org.minejewels.jewelspickaxes.ascend.commands.AscensionCommand;
 import org.minejewels.jewelspickaxes.ascend.registry.AscendRegistry;
 import org.minejewels.jewelspickaxes.ascend.utils.AscendUtil;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
@@ -77,6 +78,7 @@ public final class JewelsPickaxes extends AbyssPlugin {
         new UpdateTask(this);
 
         new PickaxeCommand(this);
+        new AscensionCommand(this);
     }
 
     @Override

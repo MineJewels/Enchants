@@ -65,7 +65,7 @@ public class AscendUtil {
         }
     }
 
-    enum AscensionResult {
+    public enum AscensionResult {
 
         SUCCESSFUL,
         NOT_ENOUGH_EXP,
