@@ -128,6 +128,38 @@ public class EnchantUtils {
         this.plugin.getPlayerCache().getEnchantPlayer(player).updatePickaxe(pickaxe, this.plugin.getEnchantUtils());
     }
 
+    public int getExperience(final ItemStack pickaxe) {
+        return  NBTUtils.get().getInt(pickaxe, "PICKAXE-EXPERIENCE");
+    }
+
+    public void addExperience(final Player player, final UUID pickaxeUUID, final ItemStack pickaxe, final int amount) {
+        final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-EXPERIENCE", this.getExperience(pickaxe) + amount);
+
+        player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), updatedItem);
+    }
+
+    public void setExperience(final Player player, final UUID pickaxeUUID, final ItemStack pickaxe, final int amount) {
+        final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-EXPERIENCE", amount);
+
+        player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), updatedItem);
+    }
+
+    public int getLevel(final ItemStack pickaxe) {
+        return NBTUtils.get().getInt(pickaxe, "PICKAXE-LEVEL");
+    }
+
+    public void addLevel(final Player player, final UUID pickaxeUUID, final ItemStack pickaxe, final int amount) {
+        final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-LEVEL", this.getLevel(pickaxe) + amount);
+
+        player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), updatedItem);
+    }
+
+    public void setLevel(final Player player, final UUID pickaxeUUID, final ItemStack pickaxe, final int amount) {
+        final ItemStack updatedItem = NBTUtils.get().setInt(pickaxe, "PICKAXE-LEVEL", amount);
+
+        player.getInventory().setItem(this.getSlotFromUUID(player, pickaxeUUID), updatedItem);
+    }
+
     public void updatePickaxe(final Player player, final UUID pickaxeUUID) {
 
         final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID);
@@ -143,7 +175,19 @@ public class EnchantUtils {
         for (final String line : pickaxe.getItem().getLore()) {
 
             if (!line.contains("%enchants%")) {
-                newLore.add(line.replace("%owner%", player.getName()));
+                newLore.add(line
+                        .replace("%owner%", player.getName())
+                        .replace("%level%", Utils.format(this.getLevel(item)))
+                        .replace("%exp%", Utils.format(this.getExperience(item)))
+                        .replace("%max-exp%", Utils.format(this.plugin.getAscendUtil().getNeededExperience(this.getLevel(item))))
+                        .replace("%progress-bar%", Utils.getProgressBar(
+                                this.getExperience(item),
+                                this.plugin.getAscendUtil().getNeededExperience(this.getLevel(item)),
+                                33,
+                                "|",
+                                "&a",
+                                "&c")
+                        ));
                 continue;
             }
 

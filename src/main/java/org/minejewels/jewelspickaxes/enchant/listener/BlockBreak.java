@@ -1,8 +1,10 @@
 package org.minejewels.jewelspickaxes.enchant.listener;
 
 import net.abyssdev.abysslib.listener.AbyssListener;
+import net.abyssdev.slikey.effectlib.util.MathUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.minejewels.jewelscobblecubes.events.CobbleCubeBreakEvent;
 import org.minejewels.jewelspickaxes.JewelsPickaxes;
@@ -32,8 +34,6 @@ public class BlockBreak extends AbyssListener<JewelsPickaxes> {
         final Player player = event.getPlayer();
         final ItemStack item = player.getInventory().getItemInMainHand();
 
-        event.getEvent().setDropItems(false);
-
         if (!this.enchantUtils.isPickaxe(item)) return;
 
         final UUID pickaxeUUID = this.enchantUtils.getPickaxeUUID(item);
@@ -44,12 +44,40 @@ public class BlockBreak extends AbyssListener<JewelsPickaxes> {
             enchantPlayer.registerPickaxe(item, this.enchantUtils);
         }
 
+        if (!this.plugin.getUpdateRegistry().containsValue(pickaxeUUID)) {
+            this.plugin.getUpdateRegistry().register(player, pickaxeUUID);
+        }
+
+        final int exp = MathUtils.random(1, 3);
+
+        this.enchantUtils.addExperience(player, pickaxeUUID, item, exp);
+
+        if (this.plugin.getEnchantUtils().getExperience(item) > this.plugin.getAscendUtil().getNeededExperience(this.plugin.getEnchantUtils().getLevel(item))) {
+            this.plugin.getEnchantUtils().setExperience(player, pickaxeUUID, item, this.plugin.getAscendUtil().getNeededExperience(this.plugin.getEnchantUtils().getLevel(item)));
+        }
+
+        if (this.plugin.getEnchantUtils().getExperience(item) >= this.plugin.getAscendUtil().getNeededExperience(this.plugin.getEnchantUtils().getLevel(item)) && this.plugin.getEnchantUtils().getLevel(item) != this.plugin.getMaxAscendLevel()) {
+
+            this.plugin.getMessageCache().sendMessage(player, "messages.ascension-needed");
+
+            event.setCancelled(true);
+            return;
+        }
+
         for (final Map.Entry<Enchant, Integer> enchant : enchantPlayer.getEnchants(pickaxeUUID).entrySet()) {
             enchant.getKey().onBreak(event, player, enchant.getValue());
         }
 
-        if (!this.plugin.getUpdateRegistry().containsValue(pickaxeUUID)) {
-            this.plugin.getUpdateRegistry().register(player, pickaxeUUID);
-        }
+
+    }
+
+    @EventHandler
+    public void onDamage(final PlayerItemDamageEvent event) {
+
+        final ItemStack item = event.getItem();
+
+        if (!this.enchantUtils.isPickaxe(item)) return;
+
+        event.setCancelled(true);
     }
 }

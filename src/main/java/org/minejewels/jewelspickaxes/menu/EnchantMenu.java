@@ -96,6 +96,8 @@ public class EnchantMenu extends AbyssMenu {
                 mineralPlayer.removeTokens(Math.round(enchant.getCost(level + enchantLevel)));
                 this.plugin.getEnchantUtils().addLevel(player, pickaxe, enchant, level);
 
+                enchant.onEquip(player, pickaxe, level);
+
                 this.open(player, enchant, pickaxeUUID);
             });
         }

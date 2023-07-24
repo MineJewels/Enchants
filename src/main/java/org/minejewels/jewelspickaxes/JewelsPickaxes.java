@@ -1,6 +1,8 @@
 package org.minejewels.jewelspickaxes;
 
+import com.cryptomorin.xseries.XMaterial;
 import lombok.Getter;
+import net.abyssdev.abysslib.builders.ItemBuilder;
 import net.abyssdev.abysslib.config.AbyssConfig;
 import net.abyssdev.abysslib.patterns.registry.Registry;
 import net.abyssdev.abysslib.plugin.AbyssPlugin;
@@ -8,6 +10,9 @@ import net.abyssdev.abysslib.text.MessageCache;
 import org.bukkit.entity.Player;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.factory.Maps;
+import org.minejewels.jewelspickaxes.ascend.Ascend;
+import org.minejewels.jewelspickaxes.ascend.registry.AscendRegistry;
+import org.minejewels.jewelspickaxes.ascend.utils.AscendUtil;
 import org.minejewels.jewelspickaxes.enchant.Enchant;
 import org.minejewels.jewelspickaxes.enchant.impl.*;
 import org.minejewels.jewelspickaxes.enchant.listener.BlockBreak;
@@ -30,30 +35,40 @@ import java.util.UUID;
 @Getter
 public final class JewelsPickaxes extends AbyssPlugin {
 
+    public static JewelsPickaxes api;
+
     private final AbyssConfig enchantsConfig = this.getAbyssConfig("enchants");
     private final AbyssConfig pickaxesConfig = this.getAbyssConfig("pickaxes");
     private final AbyssConfig menusConfig = this.getAbyssConfig("menus");
     private final AbyssConfig langConfig = this.getAbyssConfig("lang");
     private final AbyssConfig settingsConfig = this.getAbyssConfig("settings");
+    private final AbyssConfig ascendConfig = this.getAbyssConfig("ascend");
 
     private final MessageCache messageCache = new MessageCache(this.langConfig);
 
     private final Registry<String, Enchant> enchantRegistry = new EnchantRegistry();
     private final Registry<String, Pickaxe> pickaxeRegistry = new PickaxeRegistry();
     private final Registry<Player, UUID> updateRegistry = new UpdateRegistry();
+    private final Registry<Integer, Ascend> ascendRegistry = new AscendRegistry();
 
     private final EnchantUtils enchantUtils = new EnchantUtils(this);
+    private final AscendUtil ascendUtil = new AscendUtil(this);
     private final EnchantPlayerCache playerCache = new EnchantPlayerCache();
 
     private final PickaxeMenu pickaxeMenu = new PickaxeMenu(this);
 
+    private int maxAscendLevel = 0;
+
     @Override
     public void onEnable() {
+
+        JewelsPickaxes.api = this;
 
         this.loadMessages(this.messageCache, this.langConfig);
 
         this.loadEnchants();
         this.loadPickaxes();
+        this.loadAscend();
 
         new BlockBreak(this);
         new PickaxeListener(this);
@@ -106,5 +121,26 @@ public final class JewelsPickaxes extends AbyssPlugin {
 
             this.pickaxeRegistry.register(key.toUpperCase(), pickaxe);
         }
+    }
+
+    private void loadAscend() {
+
+        for (final String level : this.ascendConfig.getSectionKeys("levels")) {
+
+            final int pickaxeLevel = Integer.parseInt(level);
+            final Ascend ascend = new Ascend(
+                    pickaxeLevel,
+                    XMaterial.matchXMaterial(this.ascendConfig.getString("levels." + level + ".material")).get().parseMaterial(),
+                    this.ascendConfig.getInt("levels." + level + ".experience-required")
+            );
+
+            this.ascendRegistry.register(pickaxeLevel, ascend);
+        }
+
+        this.maxAscendLevel = this.ascendRegistry.getRegistry().size();
+    }
+
+    public static JewelsPickaxes getAPI() {
+        return JewelsPickaxes.api;
     }
 }

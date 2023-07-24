@@ -1,0 +1,10 @@
+levels:
+  1:
+    experience-required: 0
+    material: "WOODEN_PICKAXE"
+  2:
+    experience-required: 100
+    material: "STONE_PICKAXE"
+  3:
+    experience-required: 250
+    material: "GOLDEN_PICKAXE"

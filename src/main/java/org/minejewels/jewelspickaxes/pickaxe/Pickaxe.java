@@ -26,6 +26,8 @@ public class Pickaxe {
         ItemStack pickaxe = this.item.setHideItemFlags(true).parse(new PlaceholderReplacer().addPlaceholder("%owner%", player.getName()));
 
         pickaxe = NBTUtils.get().setString(pickaxe, "PICKAXE-TYPE", name.toUpperCase());
+        pickaxe = NBTUtils.get().setInt(pickaxe, "PICKAXE-LEVEL", 1);
+        pickaxe = NBTUtils.get().setInt(pickaxe, "PICKAXE-EXPERIENCE", 0);
         pickaxe = NBTUtils.get().setString(pickaxe, "PICKAXE-UUID", UUID.randomUUID().toString());
 
         player.getInventory().addItem(pickaxe);

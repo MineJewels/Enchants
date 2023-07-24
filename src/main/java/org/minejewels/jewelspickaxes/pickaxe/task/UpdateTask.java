@@ -22,7 +22,7 @@ public class UpdateTask extends AbyssTask<JewelsPickaxes> {
 
         for (final Map.Entry<Player, UUID> pickaxe : this.plugin.getUpdateRegistry().entrySet()) {
 
-            if (!(plugin.getEnchantUtils().getPickaxeFromUUID(pickaxe.getKey(), pickaxe.getValue()) == null)) continue;
+            if (this.plugin.getEnchantUtils().getPickaxeFromUUID(pickaxe.getKey(), pickaxe.getValue()) ==  null) continue;
 
             this.plugin.getEnchantUtils().updatePickaxe(pickaxe.getKey(), pickaxe.getValue());
         }

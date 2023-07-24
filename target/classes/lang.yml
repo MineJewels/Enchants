@@ -34,3 +34,23 @@ messages:
       enabled: true
       value:
         - "&b&l[!] &bA tsunami has came through and destoryed &3%amount% &bblocks!"
+  cannot-ascend:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cYou cannot ascend your pickaxe right now!"
+  ascended:
+    message:
+      enabled: true
+      value:
+        - "&a&l[!] &aYou have ascended your pickaxe to level %level%"
+  max-ascension:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cYou have hit the max level!"
+  ascension-needed:
+    message:
+      enabled: true
+      value:
+        - "&c&l[!] &cTo continue mining, ascend your pickaxe!"

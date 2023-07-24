@@ -80,7 +80,7 @@
         <dependency>
             <groupId>net.abyssdev</groupId>
             <artifactId>cobblecubes</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/libs/JewelsCobbleCubes.jar</systemPath>
         </dependency>
@@ -90,6 +90,13 @@
             <version>1.0.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/libs/JewelsMinerals.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.abyssdev</groupId>
+            <artifactId>realms</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/JewelsRealms.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
