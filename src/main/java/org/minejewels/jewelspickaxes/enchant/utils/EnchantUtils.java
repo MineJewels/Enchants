@@ -219,4 +219,60 @@ public class EnchantUtils {
 
         player.updateInventory();
     }
+
+    public ItemStack getNewPickaxe(final Player player, final UUID pickaxeUUID, final int newLevel) {
+
+        final ItemStack item = this.getPickaxeFromUUID(player, pickaxeUUID);
+
+        if (!this.isPickaxe(item)) return item;
+
+        final Pickaxe pickaxe = this.getPickaxeType(item);
+
+        final ItemMeta pickaxeMeta = item.getItemMeta();
+
+        final List<String> newLore = new LinkedList<>();
+
+        for (final String line : pickaxe.getItem().getLore()) {
+
+            if (!line.contains("%enchants%")) {
+                newLore.add(line
+                        .replace("%owner%", player.getName())
+                        .replace("%level%", Utils.format(newLevel)
+                        .replace("%exp%", Utils.format(0)
+                        .replace("%max-exp%", Utils.format(this.plugin.getAscendUtil().getNeededExperience(newLevel)))
+                        .replace("%progress-bar%", Utils.getProgressBar(
+                                0,
+                                this.plugin.getAscendUtil().getNeededExperience(newLevel),
+                                33,
+                                "|",
+                                "&a",
+                                "&c")
+                        ))));
+                continue;
+            }
+
+            for (String key : this.enchantOrder) {
+
+                final Optional<Enchant> optionalEnchant = this.plugin.getEnchantRegistry().get(key.toUpperCase());
+
+                if (!optionalEnchant.isPresent()) {
+                    continue;
+                }
+
+                final Enchant enchant = optionalEnchant.get();
+
+                if (!this.hasEnchantment(item, enchant)) continue;
+
+                final int level = this.getLevel(item, enchant);
+
+                newLore.add(enchant.getLoreFormat().replace("%level%", Utils.format(level)));
+            }
+        }
+
+        pickaxeMeta.setLore(Color.parse(newLore));
+
+        item.setItemMeta(pickaxeMeta);
+
+        return item;
+    }
 }

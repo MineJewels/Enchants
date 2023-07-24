@@ -32,7 +32,7 @@ public class AscendUtil {
 
         if (level == plugin.getMaxAscendLevel()) return 0;
 
-        final Ascend ascend = this.plugin.getAscendRegistry().get(level + 1).get();
+        final Ascend ascend = this.plugin.getAscendRegistry().get(level + 1).orElse(this.plugin.getAscendRegistry().get(plugin.getMaxAscendLevel()).get());
 
         return ascend.getRequiredExperience();
     }
