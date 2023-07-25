@@ -78,11 +78,11 @@ public class EnchantMenu extends AbyssMenu {
 
             final MineralPlayer mineralPlayer =  JewelsMinerals.get().getPlayerStorage().get(player.getUniqueId());
 
-            if (enchant.getCost(level + enchantLevel) > mineralPlayer.getTokens()) {
+            if (enchant.getTotalCostBetweenLevels(enchantLevel, level + enchantLevel) > mineralPlayer.getTokens()) {
                 builder.setItem(slot, this.lockedItem.setHideItemFlags(true).parse(replacer
                         .addPlaceholder("%level%", Utils.format(level))
                         .addPlaceholder("%new-level%", Utils.format(level + enchantLevel))
-                        .addPlaceholder("%cost%", Utils.format(enchant.getCost(level + enchantLevel)))
+                        .addPlaceholder("%cost%", Utils.format(enchant.getTotalCostBetweenLevels(enchantLevel, level + enchantLevel)))
                         .addPlaceholder("%amount%", Utils.format(mineralPlayer.getTokensNeeded(Math.round(enchant.getCost(level + enchantLevel)))))));
                 continue;
             }
@@ -90,10 +90,10 @@ public class EnchantMenu extends AbyssMenu {
             builder.setItem(slot, this.purchasableItem.setHideItemFlags(true).parse(replacer
                     .addPlaceholder("%level%", Utils.format(level))
                     .addPlaceholder("%new-level%", Utils.format(level + enchantLevel))
-                    .addPlaceholder("%cost%", Utils.format(enchant.getCost(level + enchantLevel)))));
+                    .addPlaceholder("%cost%", Utils.format(enchant.getTotalCostBetweenLevels(enchantLevel, level + enchantLevel)))));
 
             builder.addClickEvent(slot, event -> {
-                mineralPlayer.removeTokens(Math.round(enchant.getCost(level + enchantLevel)));
+                mineralPlayer.removeTokens(Math.round(enchant.getTotalCostBetweenLevels(enchantLevel, level + enchantLevel)));
                 this.plugin.getEnchantUtils().addLevel(player, pickaxe, enchant, level);
 
                 enchant.onEquip(player, pickaxe, level);

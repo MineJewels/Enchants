@@ -7,6 +7,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 100
+      level-required: 1
     chance:
       base-chance: 100.0
       chance-increase: 0.0
@@ -18,6 +19,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 100
+      level-required: 1
     chance:
       base-chance: 100.0
       chance-increase: 0.0
@@ -29,6 +31,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 100
+      level-required: 1
     chance:
       base-chance: 100.0
       chance-increase: 0.0
@@ -40,6 +43,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 100
+      level-required: 1
     chance:
       base-chance: 100.0
       chance-increase: 0.0
@@ -51,6 +55,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 15
+      level-required: 1
     chance:
       base-chance: 10.0
       chance-increase: 5.0
@@ -66,6 +71,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 15
+      level-required: 1
     chance:
       base-chance: 10.0
       chance-increase: 5.0
@@ -77,6 +83,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 15
+      level-required: 1
     chance:
       base-chance: 10.0
       chance-increase: 5.0
@@ -88,6 +95,7 @@ enchants:
       price-increase: 1.5
     levels:
       max-level: 15
+      level-required: 1
     chance:
       base-chance: 10.0
       chance-increase: 5.0

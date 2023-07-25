@@ -25,7 +25,15 @@ public abstract class Enchant {
     }
 
     public double getCost(final int level) {
-        return this.basePrice * (this.priceIncrease + (level - 1));
+        return this.basePrice * (this.priceIncrease * (level));
+    }
+
+    public double getTotalCostBetweenLevels(int startingLevel, int newLevel) {
+        double totalCost = 0;
+        for (int level = startingLevel; level <= newLevel; level++) {
+            totalCost += getCost(level);
+        }
+        return totalCost;
     }
 
     public boolean hasChance(final int level) {
